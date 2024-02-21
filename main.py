@@ -1,30 +1,33 @@
 import streamlit as st
-
 from streamlit_option_menu import option_menu
 
-import about, account, home, trending, your_posts
+import about,account,home
 
 st.set_page_config(
-        page_title="Pondering",
+        page_title="Students Data Analysis",
 )
+
+
 
 class MultiApp:
 
     def __init__(self):
         self.apps = []
-    def add_app(self, title, function):
+
+    def add_app(self, title, func):
+
         self.apps.append({
             "title": title,
-            "function": function
-        })    
+            "function": func
+        })
 
     def run():
-
-        with st.sidebar:
-            app = option_menu(
-                menu_title='Pondering ',
-                options=['Home','Account','Trending','Your Posts','about'],
-                icons=['house-fill','person-circle','trophy-fill','chat-fill','info-circle-fill'],
+        # app = st.sidebar(
+        with st.sidebar:        
+           app = option_menu(
+                menu_title='Student Data Analysis ',
+                options=['Home','Account','about'],
+                icons=['house-fill','person-circle','trophy-fill'],
                 menu_icon='chat-text-fill',
                 default_index=1,
                 styles={
@@ -33,19 +36,19 @@ class MultiApp:
         "nav-link": {"color":"white","font-size": "20px", "text-align": "left", "margin":"0px", "--hover-color": "blue"},
         "nav-link-selected": {"background-color": "#02ab21"},}
                 
-                )    
+                )
 
-        if app== 'Home':
+        if app == "Home":
             home.app()
-        if app== 'Account':
-            account.app()
-        if app== 'Trending':
-            trending.app()
-        if app== 'About':
-            about.app()
-        if app== 'Your Posts':
-            your_posts.app()
+        if app == "Account":
+            account.app()    
+        if app == "about":
+            about.app()    
+             
+          
+             
+    run()            
+         
 
-    run()                                         
 
-    
+        
