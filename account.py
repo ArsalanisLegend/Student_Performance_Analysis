@@ -4,12 +4,12 @@ from firebase_admin import firestore
 from firebase_admin import credentials
 from firebase_admin import auth
 
+cred = credentials.Certificate("arsalan-a1141-8cf21ff9c837.json")
+# firebase_admin.initialize_app(cred)
 
-cred = credentials.Certificate("pondering-5ff7c-c033cfade319.json")
-firebase_admin.initialize_app(cred)
 def app():
 # Usernm = []
-    st.title('Welcome to :violet[Pondering] :sunglasses:')
+    st.title('Welcome to :violet[Student Performance Analysis] :sunglasses:')
 
     if 'username' not in st.session_state:
         st.session_state.username = ''
